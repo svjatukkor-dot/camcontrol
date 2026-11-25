@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="dark" />
+  <meta name="description" content="CamControl — керування та діагностика камер на Windows, Linux і macOS." />
+  <title>CamControl</title>
+  <link rel="stylesheet" href="./style.css" />
+  <script type="module" src="./app.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><span class="brand-mark">CC</span><div><strong>CamControl</strong><small>Camera workstation</small></div></div>
+    <span class="stage">EARLY DEVELOPMENT</span>
+  </header>
+  <main>
+    <section class="intro">
+      <p class="eyebrow">DEVICE MANAGEMENT</p>
+      <h1>Камери та пристрої</h1>
+      <p class="muted">Єдина панель для локальних USB/UVC-камер та сумісних карт відеозахоплення.</p>
+    </section>
+    <section class="status-grid">
+      <article class="panel"><span class="panel-label">ВИЯВЛЕНІ ПРИСТРОЇ</span><strong id="device-count">—</strong><small>Кількість пристроїв, знайдених backend</small></article>
+      <article class="panel"><span class="panel-label">СТАН СИСТЕМИ</span><strong id="system-state">Підготовка</strong><small id="platform">Платформа визначається…</small></article>
+    </section>
+    <section class="panel section-panel">
+      <div class="section-heading"><div><h2>Доступні камери</h2><p class="muted">Показуються пристрої, які повернув нативний backend операційної системи.</p></div><button id="refresh" type="button">Оновити</button></div>
+      <div id="device-list" class="device-list"><div class="empty-state">Виконується ініціалізація…</div></div>
+    </section>
+    <section class="panel section-panel preview-panel">
+      <div class="section-heading"><div><h2>Відеоперегляд</h2><p class="muted">Оберіть камеру у списку вище та натисніть «Перегляд». Потік передається кадрами через Rust backend.</p></div><button id="stop-preview" class="secondary" type="button" disabled>Зупинити</button></div>
+      <div class="preview-stage"><img id="preview-image" alt="Попередній перегляд з камери" /><div id="preview-placeholder" class="preview-placeholder">Відеопотік не запущено</div></div>
+      <p id="preview-status" class="preview-status" role="status">Очікування вибору камери</p>
+    </section>
+    <section class="panel section-panel">
+      <div class="section-heading"><div><h2>Діагностика</h2><p class="muted">Перевірка доступності backend та пошук камер. Відеопотік і фізичний стан поки не тестуються.</p></div><button id="diagnose" class="secondary" type="button">Запустити перевірку</button></div>
+      <pre id="diagnostic-output">Перевірку ще не запускали.</pre>
+    </section>
+    <footer>CamControl · Rust + Tauri · Підтримка відеопотоку, мобільних компаньйонів та керування параметрами розробляється.</footer>
+  </main>
+</body>
+</html>

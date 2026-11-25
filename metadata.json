@@ -1,0 +1,6 @@
+{
+  "name": "CamControl",
+  "description": "Програма для виявлення, живого перегляду та налаштування параметрів камер на ПК для Windows 10/11 та Web.",
+  "requestFramePermissions": ["camera"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
